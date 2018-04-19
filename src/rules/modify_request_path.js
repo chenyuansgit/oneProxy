@@ -1,8 +1,10 @@
 import fetchProxy from '../lib/fetchProxy';
+import {increment} from '../lib/watcher';
 
 module.exports = {
     *beforeSendRequest(requestDetail) {
         //console.log("requestDetail:", requestDetail.url);
+        increment('qps.request');
         // 健康检查
         if(requestDetail.url === '/healthcheck.html') {
             const localResponse = {

@@ -13,7 +13,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "dotenv": "^5.0.1",
     "getmac": "^1.4.1",
-    "packing-glob": "^1.0.1"
+    "packing-glob": "^1.0.1",
+    "statsd-client": "^0.4.2"
   },
   "devDependencies": {
     "casual": "^1.5.12",
