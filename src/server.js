@@ -2,6 +2,8 @@ const {PROXY_PORT, WEBINTERFACE_ENABLE, WEBINTERFACE_PORT, THROTTLE, FORCE_PROXY
 
 import AnyProxy from 'anyproxy';
 import {increment} from './lib/watcher';
+import logger from './lib/logger';
+
 const ModifyRequestRule = require('./rules/modify_request_path');
 
 const options = {
@@ -30,11 +32,13 @@ proxyServer.start();
 process.on('uncaughtException', (err) => {
     // 打点
     increment('uncaughtException');
+    logger.processError(`${process.pid} process uncaughtException: ${err.stack}`);
 });
 
 process.on('unhandledRejection', (err, p) => {
     // 打点
     increment('unhandledRejection');
+    logger.processError(`unhandledRejection err: ${err && (err.stack || err)}, promise: ${p}`);
 });
 
 // 加入以下代码，ctrl+c 程序才能正常结束。
