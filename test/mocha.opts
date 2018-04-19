@@ -1,0 +1,4 @@
+--recursive
+--require ./dotenv.js
+--require babel-core/register
+--exit

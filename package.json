@@ -1,0 +1,29 @@
+{
+  "name": "oneProxy",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "rimraf dist && babel src -d dist",
+    "lint": "eslint --fix --quiet \"**/*.js\"",
+    "start": "pm2 start ecosystem.config.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "anyproxy": "^4.0.6",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "dotenv": "^5.0.1",
+    "getmac": "^1.4.1",
+    "packing-glob": "^1.0.1"
+  },
+  "devDependencies": {
+    "casual": "^1.5.12",
+    "mocha": "^3.4.1"
+  },
+  "peerDependencies": {
+    "pm2": "2.x"
+  },
+  "engines": {
+    "npm": ">= 3.0",
+    "node": ">= 7.6"
+  }
+}
