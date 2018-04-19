@@ -6,3 +6,7 @@ logs/
 dist/
 node_modules/
 yarn-error.log
+profiles
+qdr_service
+scripts
+
