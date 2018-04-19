@@ -1,6 +1,7 @@
 const {PROXY_PORT, WEBINTERFACE_ENABLE, WEBINTERFACE_PORT, THROTTLE, FORCE_PROXY_HTTPS, SILENT, WSINTERCEPT} = process.env;
 
 import AnyProxy from 'anyproxy';
+import {increment} from './lib/watcher';
 const ModifyRequestRule = require('./rules/modify_request_path');
 
 const options = {
@@ -24,3 +25,20 @@ proxyServer.on('error', function (e) {
     console.log("代理服务器出错:", e);
 });
 proxyServer.start();
+
+
+process.on('uncaughtException', (err) => {
+    // 打点
+    increment('uncaughtException');
+});
+
+process.on('unhandledRejection', (err, p) => {
+    // 打点
+    increment('unhandledRejection');
+});
+
+// 加入以下代码，ctrl+c 程序才能正常结束。
+process.on('SIGINT', () => {
+    console.log('server shutdown');
+    process.exit();
+});
