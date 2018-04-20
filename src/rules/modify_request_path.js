@@ -47,8 +47,8 @@ module.exports = {
             } else {
                 fetchProxy().then(function (proxy) {
                     logger.info(`fetchProxyHost: ${proxy.host || ''} fetchProxyHost: ${proxy.port || ''}`);
-                    newRequestOptions.hostname = '10.89.72.95';
-                    newRequestOptions.port = 6791;
+                    newRequestOptions.hostname = proxy.host;
+                    newRequestOptions.port = proxy.port;
                     newRequestOptions.path = requestDetail.url;
 
                     requestDetail.protocol = 'http';
