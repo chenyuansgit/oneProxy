@@ -11,10 +11,14 @@
     "anyproxy": "^4.0.6",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "co": "^4.6.0",
     "dotenv": "^5.0.1",
     "getmac": "^1.4.1",
+    "mkdir": "^0.0.2",
     "packing-glob": "^1.0.1",
-    "statsd-client": "^0.4.2"
+    "sharp": "^0.20.1",
+    "statsd-client": "^0.4.2",
+    "tracer": "^0.8.12"
   },
   "devDependencies": {
     "casual": "^1.5.12",
